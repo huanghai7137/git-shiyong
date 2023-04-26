@@ -116,6 +116,9 @@
 
         注意：  推送代码之前，一定要先从远程库中拉取最新代码
 
+        克隆代码：
+            git clone 下载链接
+
         tag  标签
 
         当头（HEAD）指针没有指向某个分支时，这种状态称为分离头指针（HEAD detached），分离头指针的状态下也可以操作代码，
@@ -148,7 +151,37 @@
         默认情况下，git会监视项目中所以有内容，但是有些文件我们没必要发到远程库中，可以在
         项目目录中创建一个  .gitignore 文件， 来设置需要忽略的文件。
 
+        github 的静态页面
+
+        在github 中，可以将自己的静态页面部署到github中，它会给我们提供一个地址使得我们的页面变成一个真正的网站，可以供用户访问。
         
+        要求：
+            静态页面的分支必须叫做： gh-pages
+            如果希望页面可以通过xxx.github.io 访问，则需要将库的名字配置为  用户名.github.io
+
+        
+        docusaurus
+
+        facebook推出的开源静态的内容管理系统，通过它可以快速的部署一个静态网站
+
+        使用：
+            网址：
+                https://docusaurus.io/
+            安装：
+                npx create-docusaurus@latest my-website classic
+            启动项目：
+                npm start 
+            构建项目：
+                npm run build
+            配置项目：
+                docusaurus.config.js    项目的配置文件
+
+            推送到github上:
+                npm run deploy
+
+            添加页面
+                在docusaurus框架中， 页面分为三种： 1. page 2. blog   3.doc
+            
         
 
 
