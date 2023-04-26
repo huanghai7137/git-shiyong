@@ -1,0 +1,5 @@
+# 是注释        *.xxx 表示所有后缀为xxx的文件
+node_modules
+package.json
+package-lock.json
+
