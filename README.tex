@@ -243,13 +243,54 @@
                                     {   
                                         test: /\.(jpg|png|gif)$/,
                                         type: "asset/resource"      //图片资源类型的数据，可以通过type来处理
-                                    }
+                                    },
+                                    {
+                                        test: /\.m?js$/,
+                                        exclude: /(node_modules|bower_components)/,
+                                        use: {
+                                          loader: 'babel-loader',
+                                          options: {
+                                            presets: ['@babel/preset-env']
+                                          }
+                                        }
+                                      }
                                 ]
                             }
 
                         }
+
+                        在编写代码时，经常需要使用js中的新特性，而新特性在旧的浏览器中的兼容性并不好。此时就导致我们无法使用一些新特性
+                        我们可以采用折中的方案，用新特性编写，再用一些工具来将新特性转换为老版本。
+                        babel就是这样一个工具，可以将js新语法转换为为旧的。提高代码的兼容性。
+                        babel使用步骤：
+                                1. 安装 npm install -D babel-loader @babel/core @babel/preset-env
             
-        
+                                {
+                                    test: /\.m?js$/,
+                                    exclude: /(node_modules|bower_components)/,
+                                    use: {
+                                      loader: 'babel-loader',
+                                      options: {
+                                        presets: ['@babel/preset-env']
+                                      }
+                                    }
+                                  }
+
+                        在package.json  中设置兼容列表
+
+                                                        "browserslist": [ 
+                                                            "defaults"
+                                                          ]
+
+                            插件  （plugin）
+
+                            插件用来为webpack来扩展功能
+                                html-webpack-plugin
+                                    这个插件可以在打包后，自动在打包目录生成html页面
+                                    使用步骤    
+                                        1.安装依赖
+                                        2.引入
+                                        3.配置插件
 
 
 
